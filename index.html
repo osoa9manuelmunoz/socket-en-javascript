@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cajero Automático</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="card-entry" class="card-entry">
+                <h2>Ingrese su número de tarjeta</h2>
+            <input type="text" id="card-number" placeholder="Número de tarjeta">
+            <button onclick="enterCard()">Ingresar</button>
+        </div>
+        <div id="menu" class="menu hidden">
+                <h2>Menú</h2>
+            <button onclick="showTransaction('deposit')">Consignación</button>
+            <button onclick="showTransaction('balance')">Consulta de saldo</button>
+            <button onclick="showTransaction('credit')">Retiro con tarjeta de crédito</button>
+            <button onclick="showTransaction('debit')">Retiro con tarjeta de débito</button>
+        </div>
+        <div id="password-entry" class="password-entry hidden">
+            <h2>Ingrese su contraseña</h2>
+            <input type="password" id="password" placeholder="Contraseña">
+            <button onclick="verifyPassword()">Verificar</button>
+        </div>
+        <div id="transaction" class="transaction hidden">
+            <h2 id="transaction-title"></h2>
+            <input type="number" id="transaction-amount" placeholder="Monto">
+            <button onclick="processTransaction()">Confirmar</button>
+        </div>
+        <div id="balance" class="balance hidden">
+            <h2>Su saldo es: <span id="balance-amount"></span></h2>
+            <button onclick="goBackToMenu()">Volver al menú</button>
+        </div>
+        <div id="withdrawal-message" class="withdrawal-message hidden">
+            <center><h2>Retire su dinero</h2>
+            <button onclick="showReceipt()">Ver Factura</button>
+            <button onclick="goBackToMenu()">Volver al menú</button>
+            <button onclick="restart()">Finalizar</button>
+        </div>
+        <div id="receipt" class="receipt hidden">
+            <h2>Factura</h2>
+            <p>Monto inicial: <span id="initial-amount"></span></p>
+            <p>Monto retirado: <span id="withdrawn-amount"></span></p>
+            <p>Saldo final: <span id="final-amount"></span></p>
+            <button onclick="goBackToMenu()">Volver al menú</button>
+            <button onclick="restart()">Finalizar</button>
+        </div>
+    </div>
+    <script src="funcion.js"></script>
+</body>
+</html>
